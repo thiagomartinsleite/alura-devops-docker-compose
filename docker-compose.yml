@@ -1,0 +1,12 @@
+services:
+  api:
+    build: .
+    image: fastapi-ellis:latest
+    container_name: api_compose
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+    # O banco SQLite será criado automaticamente como escola.db
+    # Para reiniciar o banco, basta apagar o arquivo escola.db
